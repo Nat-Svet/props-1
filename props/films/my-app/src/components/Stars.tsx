@@ -1,7 +1,10 @@
 import React from 'react';
 
+interface StarsProps {
+  count: number;
+}
 
-function Star() {
+function Star(): JSX.Element {
   return (
     <li>
       <svg
@@ -18,14 +21,11 @@ function Star() {
   );
 }
 
-
-function Stars({ count = 0 }) {
- 
+function Stars({ count }: StarsProps): JSX.Element | null {
   if (typeof count !== 'number' || count < 1 || count > 5) {
-    return null; 
+    return null;
   }
 
- 
   const starsArray = Array.from({ length: count });
 
   return (
